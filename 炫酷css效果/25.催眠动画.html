@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>催眠动画</title>
+    <link rel="stylesheet" href="./css/25.催眠动画.css">
+</head>
+<body>
+    <div class="channel">
+        催眠动画
+    </div>
+    <div class="container">
+         <div class="circle" style="--i:1;--color:#EC3E27;"></div>
+         <div class="circle" style="--i:2;--color:#FD79A8;"></div>
+         <div class="circle" style="--i:3;--color:#0984E3;"></div>
+         <div class="circle" style="--i:4;--color:#00B894;"></div>
+         <div class="circle" style="--i:5;--color:#FDCB6E;"></div>
+         <div class="circle" style="--i:6;--color:#e056fd;"></div>
+         <div class="circle" style="--i:7;--color:#F97F51;"></div>
+         <div class="circle" style="--i:8;--color:#BDC581;"></div>
+         <div class="circle" style="--i:9;--color:#EC3E27;"></div>
+         <div class="circle" style="--i:10;--color:#FD79A8;"></div>
+         <div class="circle" style="--i:11;--color:#0984E3;"></div>
+         <div class="circle" style="--i:12;--color:#00B894;"></div>
+         <div class="circle" style="--i:13;--color:#FDCB6E;"></div>
+         <div class="circle" style="--i:14;--color:#e056fd;"></div>
+         <div class="circle" style="--i:15;--color:#F97F51;"></div>
+         <div class="circle" style="--i:16;--color:#BDC581;"></div>
+    </div>
+    <script>
+        // 提前写好的要给代码可以通过鼠标控制perspective-origin
+        // 这个属性可以让你从不同视角查看3d变化
+        // 容器
+        let container = document.querySelector('.container');
+
+        // 可视区域大小
+        let window_widht = document.documentElement.clientWidth;
+        let window_height = document.documentElement.clientHeight;
+        // console.log(window_widht, window_height);
+
+        // 监听鼠标移动事件，获取鼠标位置，计算鼠标在屏幕中的百分比
+        container.addEventListener('mousemove', (e) => {
+            // 鼠标坐标
+            let left = e.clientX;
+            let top = e.clientY;
+            // 百分比
+            let left_p = left / window_widht * 100;
+            let top_p = top / window_height * 100;
+            // 透视基点
+            container.style.perspectiveOrigin = left_p + "% " + top_p + "%";
+            // console.log(left_p,top_p);
+               
+        })
+    </script>
+</body>
+</html>

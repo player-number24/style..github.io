@@ -1,0 +1,105 @@
+:root {
+    --background-color: #2c3e50;
+    --border-color    : #7591AD;
+    --text-color      : #34495e;
+    --color1          : #EC3E27;
+    --color2          : #FD79A8;
+    --color3          : #0984E3;
+    --color4          : #00B894;
+    --color5          : #FDCB6E;
+    --color6          : #e056fd;
+    --color7          : #F97F51;
+    --color8          : #BDC581;
+}
+
+* {
+    margin : 0;
+    padding: 0;
+}
+
+html {
+    font-size: 14px;
+}
+
+body {
+    width           : 100vw;
+    height          : 100vh;
+    /* background-color: var(--background-color); */
+    background-color: black;
+    display         : flex;
+    justify-content : center;
+    align-items     : center;
+    font-family     : 'Montserrat', sans-serif, Arial, 'Microsoft Yahei';
+}
+
+.channel {
+    position   : absolute;
+    width      : 80%;
+    text-align : center;
+    top        : 50%;
+    left       : 50%;
+    transform  : translate(-50%, -200px);
+    font-size  : 30px;
+    font-weight: bold;
+    color      : white;
+}
+
+.box {
+    width: 350px;
+    /* background-color: #fff; */
+
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+    transform-style: preserve-3d;
+
+}
+
+.box p {
+    position: relative;
+    font-size: 100px;
+    color: #fff;
+    transform: scale(0.9,1) rotateY(-10deg);
+    transform-origin: bottom center;
+    animation: animate 2.5s ease-in-out infinite;
+    animation-delay: calc(var(--i) * 100ms);
+    font-weight: bolder;
+
+}
+
+@keyframes animate {
+    20%{
+        transform: scale(0.9,1) rotateY(-45deg);
+        text-shadow: 
+            0 0 var(--color2)
+            0 0 var(--color3)
+            0 0 var(--color4)
+        ;            
+    }    
+    40%{
+        transform: scale(0.9,2) rotateY(-45deg);
+        text-shadow: 
+            -10px -2px var(--color2)
+            -20px -3px var(--color3)
+            -30px -4px var(--color4)
+        ;        
+    }
+    60%{
+        transform: scale(0.9,1) rotateY(-45deg);
+            text-shadow: 
+                0 0 var(--color2)
+                0 0 var(--color3)
+                0 0 var(--color4)
+            ;
+    }
+    80%{
+        transform: scale(0.9,2) rotateY(-45deg);
+            text-shadow: 
+                10px -2px var(--color2)
+                20px -3px var(--color3)
+                30px -4px var(--color4)
+            ;
+    }
+
+}

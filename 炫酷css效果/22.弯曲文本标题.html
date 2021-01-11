@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content.="width=device-width, initial-scale=1.0">
+    <title>弯曲文本标题</title>
+    <link rel="stylesheet" href="./css/22.弯曲文本标题.css">
+</head>
+
+<body>
+    <div class="channel">弯曲文本标题</div>
+    <div class="container">
+        <!-- 每个字符之后的span不能有间隙或者空行 -->
+        <span>h</span><span>e</span><span>l</span><span>l</span><span>o</span><span>w</span><span>o</span><span>r</span><span>l</span><span>d</span>
+
+    </div>
+    <script>
+        // 写个脚本控制鼠标移入
+        var spans = document.querySelectorAll('span')
+        // console.log(spans);
+
+        // 为所有的标签增加绑定鼠标移入，移除的事件，并处理相关增加或移除样式操作
+        for (const key in spans) {
+            if (Object.hasOwnProperty.call(spans, key)) {
+                const element = spans[key];
+
+                // key为字符类型，需要转数字
+                let index = parseInt(key);
+
+                // 增加鼠标移入事件
+                element.addEventListener("mouseover", (e) => {
+                    element.classList.add('flat')
+
+                    // 联动操作，控制前后span同时增加样式、
+
+
+                    // 判断技术，偶数（span是从0开始数的）】
+                    if (index % 2 == 0) {
+                        // 偶数后一个联动
+                        spans[index + 1].classList.add('flat')
+                    } else {
+                        // 奇数qian一个联动
+                        spans[index - 1].classList.add('flat')
+                    }
+
+
+                })
+                // 增加鼠标移除事件
+                element.addEventListener("mouseout", (e) => {
+                    element.classList.remove('flat')
+
+                     // 联动操作，控制前后span同时移除样式、
+
+
+                    // 判断技术，偶数（span是从0开始数的）】
+                    if (index % 2 == 0) {
+                        // 偶数后一个联动
+                        spans[index + 1].classList.remove('flat')
+                    } else {
+                        // 奇数qian一个联动
+                        spans[index - 1].classList.remove('flat')
+                    }
+                })
+
+            }
+        }
+    </script>
+</body>
+
+</html>

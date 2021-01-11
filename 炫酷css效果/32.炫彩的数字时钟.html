@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>炫彩的数字时钟</title>
+    <link rel="stylesheet" href="./css/32.炫彩的数字时钟.css">
+</head>
+<body>
+    <div class="channel">
+        炫彩的数字时钟
+    </div>
+    <div class="clock_box">
+        <div class="clock">
+            <p id="time">12:12:12 AM</p>
+        </div>
+    </div>
+    <script>
+        // 获取页面id=time的元素
+        var time = document.querySelector('#time');
+
+        function up(time_el) {
+            // 获取当前时间
+        let date = new Date();
+        // 获取时分秒
+        let h = date.getHours();
+        let m = date.getMinutes();
+        let s = date.getSeconds();
+
+        let day_night = "AM";
+
+        if(h > 12) {
+            h = h - 12;
+            day_night = "PM";
+        }
+
+        if(h < 10) {
+            h = "0" + h
+        }
+        if(m < 10) {
+            m = "0" + m
+        }
+        if(s < 10) {
+            s = "0" + s
+        }
+
+        time_el.textContent = h + ":" + m + ":" + s + " " +day_night;
+        }
+
+        // 定时器，每秒执行一次实现更新
+        setInterval(() => {
+                up(time);
+        }, 1000);
+
+    </script>
+</body>
+</html>
